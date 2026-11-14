@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<main class="container section">
+  <h1>Características Principales</h1>
+  <div class="grid-3">
+    <% features.forEach(item => { %>
+      <article class="card">
+        <h3><%= item.titulo %></h3>
+        <p><%= item.descripcion %></p>
+      </article>
+    <% }) %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

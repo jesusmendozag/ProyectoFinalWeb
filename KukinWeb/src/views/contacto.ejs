@@ -1,0 +1,23 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<main class="container section">
+  <h1>Contacto y Retroalimentación</h1>
+  <% if (enviado) { %>
+    <div class="alert-success">¡Gracias! Tu mensaje ha sido recibido correctamente.</div>
+  <% } %>
+  <form action="/contacto" method="POST" class="contact-form">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="mensaje">Mensaje o sugerencia</label>
+    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+  </form>
+</main>
+
+<%- include('partials/footer') %>

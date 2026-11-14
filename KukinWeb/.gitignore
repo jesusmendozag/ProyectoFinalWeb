@@ -1,0 +1,19 @@
+# Dependencias de Node
+node_modules/
+
+# Variables de entorno y secretos (CRÍTICO)
+.env
+.env.local
+.env.*.local
+
+# Logs y archivos temporales del sistema
+npm-debug.log*
+yarn-debug.log*
+.DS_Store
+Thumbs.db
+
+# Carpeta de compilación o archivos privados
+dist/
+coverage/
+*.pem
+*.key
