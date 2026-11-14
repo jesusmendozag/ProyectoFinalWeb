@@ -1,13 +1,26 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container section center-box">
-  <h1>Descarga Kukin</h1>
-  <p>Versión actual: <strong><%= version %></strong></p>
-  <p class="muted"><%= requisitos %></p>
-  <a href="<%= downloadUrl %>" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-    Descargar APK Oficial
-  </a>
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>Descarga Kukin</h1>
+      <p>Instala la app en tu teléfono Android.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="download-card">
+        <h2>Kukin para Android</h2>
+        <div class="meta">
+          <span class="chip">Versión <%= version %></span>
+          <span class="chip"><%= requisitos %></span>
+        </div>
+        <a href="<%= downloadUrl %>" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Descargar APK oficial</a>
+        <p class="help">Si Android te pide permiso para instalar desde este origen, actívalo solo para esta descarga. ¿Algún problema? <a href="/contacto"><strong>Escríbenos</strong></a>.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

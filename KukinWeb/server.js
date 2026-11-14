@@ -23,9 +23,9 @@ app.use('/', webRoutes);
 
 // Manejo de error 404 (Página no encontrada)
 app.use((req, res) => {
-  res.status(404).render('index', {
+  res.status(404).render('404', {
     title: 'Página no encontrada | Kukin',
-    activePage: 'inicio',
+    activePage: '',
     appName: config.appName
   });
 });

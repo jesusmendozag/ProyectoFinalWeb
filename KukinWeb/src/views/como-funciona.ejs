@@ -1,13 +1,23 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container section">
-  <h1>¿Cómo funciona Kukin?</h1>
-  <ol class="steps-list">
-    <li><strong>1. Escanea o registra tu alacena:</strong> Agrega los ingredientes que tienes en casa.</li>
-    <li><strong>2. Descubre recetas compatibles:</strong> Filtra por tiempo de preparación o ingredientes disponibles.</li>
-    <li><strong>3. Cocina paso a paso:</strong> Sigue instrucciones claras con sustituciones locales si te falta algo.</li>
-  </ol>
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>¿Cómo funciona Kukin?</h1>
+      <p>Tres pasos para cocinar sin desperdiciar.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <ol class="steps">
+        <li><div><strong>Escanea o registra tu alacena</strong><p>Agrega los ingredientes que tienes en casa.</p></div></li>
+        <li><div><strong>Descubre recetas compatibles</strong><p>Filtra por tiempo de preparación o ingredientes disponibles.</p></div></li>
+        <li><div><strong>Cocina paso a paso</strong><p>Sigue instrucciones claras con sustituciones locales si te falta algo.</p></div></li>
+      </ol>
+      <div class="cta-group" style="margin-top:2.5rem"><a href="/descargar" class="btn btn-primary">Descargar Kukin</a></div>
+    </div>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

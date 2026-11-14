@@ -1,13 +1,14 @@
 <header class="navbar">
   <div class="container nav-content">
-    <a href="/" class="logo">Kukin <span>App</span></a>
-    <nav>
-      <ul class="nav-links">
+    <a href="/" class="logo" aria-label="Kukin, inicio">Kukin<span>App</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav aria-label="Principal">
+      <ul class="nav-links" id="menu">
         <li><a href="/" class="<%= activePage === 'inicio' ? 'active' : '' %>">Inicio</a></li>
         <li><a href="/caracteristicas" class="<%= activePage === 'caracteristicas' ? 'active' : '' %>">Características</a></li>
         <li><a href="/como-funciona" class="<%= activePage === 'como-funciona' ? 'active' : '' %>">Cómo funciona</a></li>
-        <li><a href="/descargar" class="<%= activePage === 'descargar' ? 'active' : '' %>">Descargar</a></li>
         <li><a href="/contacto" class="<%= activePage === 'contacto' ? 'active' : '' %>">Contacto</a></li>
+        <li><a href="/descargar" class="btn btn-primary btn-sm">Descargar</a></li>
       </ul>
     </nav>
   </div>

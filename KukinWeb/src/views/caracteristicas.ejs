@@ -1,16 +1,23 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container section">
-  <h1>Características Principales</h1>
-  <div class="grid-3">
-    <% features.forEach(item => { %>
-      <article class="card">
-        <h3><%= item.titulo %></h3>
-        <p><%= item.descripcion %></p>
-      </article>
-    <% }) %>
-  </div>
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>Características principales</h1>
+      <p>Lo que Kukin hace por tu cocina todos los días.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container grid-3">
+      <% features.forEach(item => { %>
+        <article class="card">
+          <h3><%= item.titulo %></h3>
+          <p><%= item.descripcion %></p>
+        </article>
+      <% }) %>
+    </div>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

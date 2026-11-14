@@ -1,15 +1,88 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container hero">
-  <div class="hero-text">
-    <h1>Cocina delicioso con lo que ya tienes en tu alacena</h1>
-    <p>Kukin organiza tus ingredientes, evita el desperdicio de comida y te recomienda recetas adaptadas a la gastronomía mexicana.</p>
-    <div class="cta-group">
-      <a href="/descargar" class="btn btn-primary">Descargar para Android</a>
-      <a href="/caracteristicas" class="btn btn-secondary">Ver funciones</a>
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Cocina rico con lo que ya tienes en casa</h1>
+        <p class="lead">Kukin organiza tu alacena, te avisa qué se va a caducar y te recomienda recetas de la cocina mexicana con tus ingredientes.</p>
+        <div class="cta-group">
+          <a href="/descargar" class="btn btn-primary">Descargar para Android</a>
+          <a href="/caracteristicas" class="btn btn-secondary">Ver funciones</a>
+        </div>
+        <p class="hero-note">Disponible para Android 10 o superior.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="phone">
+          <h4>Mi alacena</h4>
+          <div class="item">Tortillas de maíz <span class="chip warn">Caduca en 2 días</span></div>
+          <div class="item">Jitomate <span class="chip warn">Caduca en 3 días</span></div>
+          <div class="item">Frijoles negros <span class="chip ok">Sin prisa</span></div>
+          <div class="match">
+            <small>Receta para hoy</small>
+            <strong>Chilaquiles rojos</strong>
+            <p>Tienes 5 de 6 ingredientes. Sin crema: usa yogur natural.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <% for (let i = 0; i < 2; i++) { %>
+        <% ['Jitomate','Chile poblano','Frijoles','Tortillas','Cilantro','Aguacate','Limón','Queso fresco','Epazote','Nopales'].forEach(x => { %><span><%= x %></span><% }) %>
+      <% } %>
     </div>
   </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Menos desperdicio, más sazón</h2>
+        <p class="lead">Todo lo que necesitas para saber qué tienes y qué cocinar hoy.</p>
+      </div>
+      <div class="panels">
+        <article class="panel">
+          <div class="badge" aria-hidden="true">🧺</div>
+          <h3>Alacena al día</h3>
+          <p>Registra ingredientes, cantidades y fechas de caducidad en segundos.</p>
+        </article>
+        <article class="panel">
+          <div class="badge" aria-hidden="true">🌮</div>
+          <h3>Recetas con lo que tienes</h3>
+          <p>Platillos mexicanos e internacionales filtrados según tu inventario.</p>
+        </article>
+        <article class="panel">
+          <div class="badge" aria-hidden="true">🔁</div>
+          <h3>Sustituciones locales</h3>
+          <p>Si falta algo, Kukin sugiere equivalentes fáciles de conseguir en México.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <h2>De tu alacena a la mesa en tres pasos</h2>
+      </div>
+      <ol class="steps">
+        <li><div><strong>Registra tu alacena</strong><p>Agrega los ingredientes que tienes en casa.</p></div></li>
+        <li><div><strong>Elige una receta</strong><p>Filtra por tiempo de preparación o por ingredientes disponibles.</p></div></li>
+        <li><div><strong>Cocina paso a paso</strong><p>Sigue instrucciones claras, con sustituciones si te falta algo.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="cta-band">
+      <h2>Empieza a cocinar con lo que ya tienes</h2>
+      <p>Descarga Kukin y arma tu primera alacena hoy.</p>
+      <a href="/descargar" class="btn btn-light">Descargar Kukin</a>
+    </div>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

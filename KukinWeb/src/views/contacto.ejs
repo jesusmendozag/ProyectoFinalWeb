@@ -1,23 +1,35 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container section">
-  <h1>Contacto y Retroalimentación</h1>
-  <% if (enviado) { %>
-    <div class="alert-success">¡Gracias! Tu mensaje ha sido recibido correctamente.</div>
-  <% } %>
-  <form action="/contacto" method="POST" class="contact-form">
-    <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" required>
-
-    <label for="correo">Correo electrónico</label>
-    <input type="email" id="correo" name="correo" required>
-
-    <label for="mensaje">Mensaje o sugerencia</label>
-    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-  </form>
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>Contacto y soporte</h1>
+      <p>Cuéntanos qué te gustaría mejorar o dónde necesitas ayuda.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2>Tu opinión hace mejor a Kukin</h2>
+        <p class="lead" style="margin-top:1rem">Lee cada mensaje: sugerencias de recetas, errores o ideas para la app.</p>
+      </div>
+      <div>
+        <% if (enviado) { %>
+          <div class="alert-success" role="status">¡Gracias! Tu mensaje ha sido recibido correctamente.</div>
+        <% } %>
+        <form action="/contacto" method="POST" class="contact-form">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" autocomplete="email" required>
+          <label for="mensaje">Mensaje o sugerencia</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <%- include('partials/footer') %>
