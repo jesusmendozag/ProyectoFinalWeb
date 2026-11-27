@@ -729,6 +729,10 @@ html.js:not(.reduce):not(.no-motion) .timeline::after { transform: scaleY(var(--
 .alert-ok { background: var(--fresco-bg); color: var(--fresco); }
 .alert-ok .ic { width: 28px; height: 28px; padding: 5px; border-radius: 50%; background: var(--fresco); color: #fff; }
 .alert-error { background: var(--alerta-bg); color: var(--alerta); }
+.alert-info { background: var(--arena); color: var(--marino); border: 1px solid var(--linea); }
+.contact-form fieldset { border: 0; min-width: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-form fieldset[disabled] { opacity: .55; }
+.contact-form fieldset[disabled] .btn { cursor: not-allowed; }
 
 /* ── 404 ─────────────────────────────────────────── */
 .notfound { padding: clamp(5rem, 12vw, 9rem) 0; text-align: center; }
