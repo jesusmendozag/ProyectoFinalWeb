@@ -1,14 +1,34 @@
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-menos" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-voz" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9.5V13l2.5 2M10 2.8h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4.5 19.5l1.1-3.7A8 8 0 1 1 8.4 18.6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.2 8.6c.2-.5.6-.5.9-.5l.6.1 1 2.1-.6.9c.6 1.1 1.4 1.9 2.5 2.4l.9-.7 2 1c0 .6-.2 1.2-.8 1.5-.8.4-2.4.2-4.3-1.5s-2.5-3.6-2.2-5.3Z" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 3.8v16.4c0 .7.8 1.2 1.4.8L20 12.8c.6-.4.6-1.2 0-1.6L6.4 3c-.6-.4-1.4.1-1.4.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5.5 4l9.5 9.5M5.5 20l9.5-9.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15L6 16.5ZM10 20.5a2.2 2.2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-nube" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+</svg>
+
 <header class="navbar">
   <div class="container nav-content">
-    <a href="/" class="logo" aria-label="Kukin, inicio">Kukin<span>App</span></a>
+    <a href="/" class="logo" aria-label="Kukin, ir al inicio">
+      <img src="/img/icono.svg" alt="" width="36" height="36">
+      <span>Kukin</span>
+    </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
     <nav aria-label="Principal">
       <ul class="nav-links" id="menu">
-        <li><a href="/" class="<%= activePage === 'inicio' ? 'active' : '' %>">Inicio</a></li>
-        <li><a href="/caracteristicas" class="<%= activePage === 'caracteristicas' ? 'active' : '' %>">Características</a></li>
-        <li><a href="/como-funciona" class="<%= activePage === 'como-funciona' ? 'active' : '' %>">Cómo funciona</a></li>
-        <li><a href="/contacto" class="<%= activePage === 'contacto' ? 'active' : '' %>">Contacto</a></li>
-        <li><a href="/descargar" class="btn btn-primary btn-sm">Descargar</a></li>
+        <li><a href="/" <%- activePage === 'inicio' ? 'class="active" aria-current="page"' : '' %>>Inicio</a></li>
+        <li><a href="/caracteristicas" <%- activePage === 'caracteristicas' ? 'class="active" aria-current="page"' : '' %>>Funciones</a></li>
+        <li><a href="/como-funciona" <%- activePage === 'como-funciona' ? 'class="active" aria-current="page"' : '' %>>Cómo funciona</a></li>
+        <li><a href="/contacto" <%- activePage === 'contacto' ? 'class="active" aria-current="page"' : '' %>>Contacto</a></li>
+        <li><a href="/descargar" class="btn btn-primary btn-sm magnet<%= activePage === 'descargar' ? ' is-current' : '' %>" <%- activePage === 'descargar' ? 'aria-current="page"' : '' %>>Descargar</a></li>
       </ul>
     </nav>
   </div>

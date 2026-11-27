@@ -1,23 +1,123 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main>
+<main id="contenido">
   <section class="page-head">
     <div class="container">
-      <h1>Características principales</h1>
-      <p>Lo que Kukin hace por tu cocina todos los días.</p>
+      <h1 class="split-chars">Todo lo que hace Kukin.</h1>
+      <p class="lead">Ocho funciones pensadas para lo que pasa en una cocina de verdad. Todas están en la app hoy.</p>
+      <nav class="jump" aria-label="Ir a una función">
+        <% funciones.forEach(function (f) { %><a href="#<%= f.id %>"><span aria-hidden="true"><%= f.emoji %></span> <%= f.titulo %></a><% }) %>
+      </nav>
     </div>
   </section>
-  <section class="section">
-    <div class="container grid-3">
-      <% features.forEach(item => { %>
-        <article class="card">
-          <h3><%= item.titulo %></h3>
-          <p><%= item.descripcion %></p>
-        </article>
-      <% }) %>
-    </div>
-  </section>
+
+  <div class="feat-rows">
+    <% funciones.forEach(function (f, i) { %>
+      <section class="feat-row<%= i % 2 ? ' flip' : '' %>" id="<%= f.id %>" aria-labelledby="t-<%= f.id %>">
+        <div class="container feat-grid">
+          <div class="feat-copy">
+            <span class="feat-em" aria-hidden="true"><%= f.emoji %></span>
+            <h2 id="t-<%= f.id %>" class="split"><%= f.titulo %></h2>
+            <p class="lead"><%= f.corto %></p>
+            <ul class="ticks">
+              <% f.puntos.forEach(function (x) { %><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><%= x %></span></li><% }) %>
+            </ul>
+          </div>
+
+          <div class="feat-visual fv-<%= f.color %>" aria-hidden="true">
+            <% if (f.id === 'alacena') { %>
+              <div class="mini mini-tilt">
+                <p class="mini-t">Mi alacena</p>
+                <ul class="pantry">
+                  <li><span class="em" style="--c:#FFEBEE">🍅</span><span class="pn"><b>Jitomate</b><small>3 piezas</small></span><span class="tag tag-alerta">Caduca en 2 días</span></li>
+                  <li><span class="em" style="--c:#E8F5E9">🥑</span><span class="pn"><b>Aguacate</b><small>2 piezas</small></span><span class="tag tag-alerta">Por caducar</span></li>
+                  <li><span class="em" style="--c:#F3ECE0">🧅</span><span class="pn"><b>Cebolla</b><small>2 piezas</small></span><span class="tag tag-fresco">Fresco</span></li>
+                  <li><span class="em" style="--c:#FFF8E1">🥚</span><span class="pn"><b>Huevo</b><small>12 piezas</small></span><span class="tag tag-fresco">Fresco</span></li>
+                </ul>
+              </div>
+              <div class="mini mini-pop">
+                <p class="mini-t">¿Cuánto te queda?</p>
+                <div class="qty"><span>🍅 Jitomate</span><b>1 pieza</b></div>
+                <span class="mini-out">Se acabó</span>
+              </div>
+            <% } else if (f.id === 'recetas') { %>
+              <div class="mini mini-tilt">
+                <div class="sc-chips"><span class="on">Caduca pronto</span><span>Rápidas</span><span>Sin horno</span><span>Baratas</span></div>
+                <div class="rc"><span class="rc-em" style="--c:#FFEBEE">🌶️</span><div class="rc-b"><b>Chilaquiles rojos</b><span class="sc-bar"><i style="--w:83%"></i></span><small class="rc-f">83% · Te falta: crema</small></div></div>
+                <div class="rc"><span class="rc-em" style="--c:#FFF8E1">🍳</span><div class="rc-b"><b>Huevo a la mexicana</b><span class="sc-bar"><i style="--w:100%"></i></span><small class="rc-f ok">100% · Tienes todo</small></div></div>
+                <div class="rc"><span class="rc-em" style="--c:#E8F5E9">🥒</span><div class="rc-b"><b>Calabacitas a la mexicana</b><span class="sc-bar"><i style="--w:67%"></i></span><small class="rc-f">67% · ≈ 180 kcal</small></div></div>
+              </div>
+            <% } else if (f.id === 'cocina') { %>
+              <div class="mini mini-tilt">
+                <p class="mini-t">Paso 3 de 6</p>
+                <p class="mini-step">Fríe las tortillas en tiras hasta que doren, unos 10 minutos.</p>
+                <div class="ck-actions">
+                  <span class="ck-btn"><svg class="ic"><use href="#i-voz"/></svg> Leer</span>
+                  <span class="ck-btn ck-timer"><svg class="ic"><use href="#i-reloj"/></svg> <b class="js-timer">10:00</b></span>
+                </div>
+              </div>
+              <div class="mini mini-pop">
+                <p class="mini-t">Porciones</p>
+                <div class="por"><span class="por-c"><i><svg class="ic"><use href="#i-menos"/></svg></i><b>4</b><i><svg class="ic"><use href="#i-mas"/></svg></i></span></div>
+                <span class="tag tag-alerta">Tienes poco: crema</span>
+              </div>
+            <% } else if (f.id === 'lista') { %>
+              <div class="mini mini-tilt">
+                <p class="mini-t">Lista del súper</p>
+                <div class="ls-prog"><span>3 de 8 en el carrito</span><span class="sc-bar"><i style="--w:37.5%"></i></span></div>
+                <p class="ls-g">Para Chilaquiles rojos</p>
+                <ul class="ls">
+                  <li class="done"><i><svg class="ic"><use href="#i-check"/></svg></i>Crema <small>1 taza</small></li>
+                  <li><i></i>Queso fresco <small>200 g</small></li>
+                </ul>
+                <span class="sc-cta sc-wa"><svg class="ic"><use href="#i-whatsapp"/></svg> Compartir por WhatsApp</span>
+              </div>
+              <div class="mini mini-pop">
+                <p class="mini-t">De vuelta en casa</p>
+                <span class="sc-cta">Guardar lo comprado en alacena</span>
+              </div>
+            <% } else if (f.id === 'avisos') { %>
+              <div class="noti">
+                <div class="noti-top"><img src="/img/icono.svg" alt="" width="20" height="20"> Kukin · ahora</div>
+                <b>Tu jitomate caduca en 2 días 🍅</b>
+                <p>Toca para ver recetas que lo usan.</p>
+              </div>
+              <div class="noti noti-2">
+                <div class="noti-top"><img src="/img/icono.svg" alt="" width="20" height="20"> Kukin · hace 1 h</div>
+                <b>Tu aguacate caduca en 2 días 🥑</b>
+                <p>Toca para ver recetas que lo usan.</p>
+              </div>
+            <% } else if (f.id === 'objetivo') { %>
+              <div class="mini mini-tilt">
+                <p class="mini-t">¿Cuál es tu objetivo?</p>
+                <div class="goals">
+                  <span>⚖️ Bajar de peso</span><span class="on">💪 Ganar músculo</span><span>❤️ Cuidar el corazón</span><span>🍽️ Comer equilibrado</span>
+                </div>
+              </div>
+            <% } else if (f.id === 'offline') { %>
+              <div class="mini mini-tilt">
+                <div class="offline-bar"><svg class="ic"><use href="#i-nube"/></svg> Sin conexión: te mostramos lo último que guardaste</div>
+                <ul class="pantry">
+                  <li><span class="em" style="--c:#FFEBEE">🍅</span><span class="pn"><b>Jitomate</b><small>3 piezas</small></span></li>
+                  <li><span class="em" style="--c:#FFF4DC">🫓</span><span class="pn"><b>Tortillas</b><small>1 kg</small></span></li>
+                </ul>
+              </div>
+            <% } else if (f.id === 'cuenta') { %>
+              <div class="mini mini-tilt">
+                <p class="mini-t"><svg class="ic"><use href="#i-candado"/></svg> Inicia sesión</p>
+                <div class="field-mock"><small>Correo</small><span>tu@correo.com</span></div>
+                <div class="field-mock"><small>Contraseña</small><span>••••••••</span></div>
+                <span class="sc-cta">Entrar</span>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </section>
+    <% }) %>
+  </div>
+
+  <%- include('partials/cta') %>
 </main>
 
 <%- include('partials/footer') %>

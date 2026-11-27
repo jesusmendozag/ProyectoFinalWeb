@@ -18,6 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'src', 'public')));
 
+// Librerías de animación servidas desde node_modules (sin CDN, compatible con la CSP de helmet)
+app.use('/vendor/gsap', express.static(path.join(__dirname, 'node_modules', 'gsap', 'dist')));
+app.use('/vendor/lenis', express.static(path.join(__dirname, 'node_modules', 'lenis', 'dist')));
+
 // Rutas principales
 app.use('/', webRoutes);
 

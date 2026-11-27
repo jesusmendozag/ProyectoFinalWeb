@@ -1,31 +1,58 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main>
+<main id="contenido">
   <section class="page-head">
     <div class="container">
-      <h1>Contacto y soporte</h1>
-      <p>Cuéntanos qué te gustaría mejorar o dónde necesitas ayuda.</p>
+      <h1 class="split-chars">Platiquemos.</h1>
+      <p class="lead">Cuéntanos qué te gustaría mejorar o dónde necesitas ayuda.</p>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section" id="formulario">
     <div class="container contact-grid">
-      <div>
-        <h2>Tu opinión hace mejor a Kukin</h2>
-        <p class="lead" style="margin-top:1rem">Lee cada mensaje: sugerencias de recetas, errores o ideas para la app.</p>
+      <div class="contact-copy">
+        <h2 class="split">Tu opinión hace mejor a Kukin.</h2>
+        <p class="lead">Leemos cada mensaje. Escríbenos si:</p>
+        <ul class="ticks">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Encontraste un error en la app</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Quieres sugerir una receta o un ingrediente</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Quieres que te avisemos cuando llegue a Google Play</span></li>
+        </ul>
+        <p class="contact-place">Naat Labs · Zapopan, Jalisco, México</p>
       </div>
-      <div>
+
+      <div class="form-card">
         <% if (enviado) { %>
-          <div class="alert-success" role="status">¡Gracias! Tu mensaje ha sido recibido correctamente.</div>
+          <div class="alert alert-ok" role="status">
+            <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>
+            <span><b>¡Gracias!</b> Recibimos tu mensaje.</span>
+          </div>
         <% } %>
-        <form action="/contacto" method="POST" class="contact-form">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" autocomplete="name" required>
-          <label for="correo">Correo electrónico</label>
-          <input type="email" id="correo" name="correo" autocomplete="email" required>
-          <label for="mensaje">Mensaje o sugerencia</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        <% if (error) { %>
+          <div class="alert alert-error" role="alert">
+            <span><b>Falta algo.</b> Revisa que tu nombre, un correo válido y tu mensaje estén completos.</span>
+          </div>
+        <% } %>
+        <form action="/contacto" method="POST" class="contact-form" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            <p class="field-err" id="err-nombre">Escribe tu nombre.</p>
+          </div>
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" inputmode="email" required>
+            <p class="field-err" id="err-correo">Escribe un correo válido, por ejemplo: nombre@correo.com</p>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje o sugerencia</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <p class="field-err" id="err-mensaje">Cuéntanos algo en tu mensaje.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg magnet">
+            Enviar mensaje <svg class="ic" aria-hidden="true"><use href="#i-flecha"/></svg>
+          </button>
         </form>
       </div>
     </div>

@@ -1,23 +1,52 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main>
-  <section class="page-head">
-    <div class="container">
-      <h1>Descarga Kukin</h1>
-      <p>Instala la app en tu teléfono Android.</p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="download-card">
-        <h2>Kukin para Android</h2>
-        <div class="meta">
-          <span class="chip">Versión <%= version %></span>
-          <span class="chip"><%= requisitos %></span>
+<main id="contenido">
+  <section class="dl" aria-labelledby="dl-titulo">
+    <div class="container dl-grid">
+      <div class="dl-copy">
+        <h1 id="dl-titulo" class="split-chars">Kukin para Android.</h1>
+        <p class="lead">Kukin todavía no está en Google Play. Estamos dando los últimos toques para que llegue muy pronto.</p>
+
+        <div class="dl-card">
+          <div class="dl-row">
+            <span class="chip chip-verde">Versión <%= version %></span>
+            <span class="chip">Solo Android</span>
+            <span class="chip">En español</span>
+          </div>
+
+          <span class="store-badge" aria-disabled="true">
+            <svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>
+            <span><small>Próximamente en</small><b>Google Play</b></span>
+          </span>
+
+          <% if (tieneApk) { %>
+            <div class="dl-apk">
+              <h2>¿No quieres esperar?</h2>
+              <p>Puedes instalar la versión de prueba (APK) desde la página de lanzamientos del proyecto.</p>
+              <a href="<%= downloadUrl %>" class="btn btn-primary btn-lg magnet" target="_blank" rel="noopener noreferrer">
+                <svg class="ic" aria-hidden="true"><use href="#i-descarga"/></svg>
+                Descargar APK de prueba
+              </a>
+              <details class="dl-help">
+                <summary>¿Cómo se instala un APK?</summary>
+                <ol>
+                  <li>Abre el enlace desde tu celular Android y descarga el archivo <b>.apk</b>.</li>
+                  <li>Ábrelo. Si Android te pide permiso para instalar apps de este origen, actívalo solo para esta instalación.</li>
+                  <li>Toca <b>Instalar</b> y abre Kukin.</li>
+                </ol>
+              </details>
+            </div>
+          <% } %>
+
+          <p class="dl-foot">¿Algún problema o quieres que te avisemos? <a href="/contacto">Escríbenos</a>.</p>
         </div>
-        <a href="<%= downloadUrl %>" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Descargar APK oficial</a>
-        <p class="help">Si Android te pide permiso para instalar desde este origen, actívalo solo para esta descarga. ¿Algún problema? <a href="/contacto"><strong>Escríbenos</strong></a>.</p>
+      </div>
+
+      <div class="dl-visual">
+        <div class="hero-blob" aria-hidden="true"></div>
+        <%- include('partials/phone', { screens: ['recetas'], extraClass: 'phone-dl' }) %>
+        <p class="phone-caption">Ilustración de la app</p>
       </div>
     </div>
   </section>

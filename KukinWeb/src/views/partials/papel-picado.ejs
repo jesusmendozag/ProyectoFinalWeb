@@ -1,0 +1,19 @@
+<%
+  // Tira de papel picado (decorativa). Colores: rosa mexicano, cempasúchil, crema, talavera, verde claro.
+  var colores = ['#E4007C', '#F59E0B', '#FDFBF7', '#1E4FA3', '#8FD3A7'];
+  var n = 14;
+%>
+<div class="papel-picado" aria-hidden="true">
+  <svg viewBox="0 0 1344 96" preserveAspectRatio="xMidYMin slice" fill="none">
+    <path d="M0 8 Q672 22 1344 8" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <% for (var i = 0; i < n; i++) { var x = 8 + i * 96; var y = 8 + Math.round(14 * (1 - Math.pow((i - (n - 1) / 2) / ((n - 1) / 2), 2))); %>
+      <g class="pp-flag" style="--i:<%= i %>">
+        <path fill="<%= colores[i % colores.length] %>" fill-rule="evenodd" d="M<%= x %> <%= y %>h80v54l-10 10-10-10-10 10-10-10-10 10-10-10-10 10-10-10Z
+          M<%= x + 40 %> <%= y + 14 %>l8 10-8 10-8-10Z
+          M<%= x + 16 %> <%= y + 12 %>a5 5 0 1 0 0.01 0Z M<%= x + 64 %> <%= y + 12 %>a5 5 0 1 0 0.01 0Z
+          M<%= x + 16 %> <%= y + 40 %>a4 4 0 1 0 0.01 0Z M<%= x + 64 %> <%= y + 40 %>a4 4 0 1 0 0.01 0Z
+          M<%= x + 30 %> <%= y + 46 %>h20v4h-20Z"/>
+      </g>
+    <% } %>
+  </svg>
+</div>

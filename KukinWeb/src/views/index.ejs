@@ -1,28 +1,49 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main>
-  <section class="hero">
+<main id="contenido">
+
+  <!-- ───────── Hero ───────── -->
+  <section class="hero" aria-labelledby="hero-titulo">
     <div class="container hero-grid">
-      <div>
-        <h1>Cocina rico con lo que ya tienes en casa</h1>
-        <p class="lead">Kukin organiza tu alacena, te avisa qué se va a caducar y te recomienda recetas de la cocina mexicana con tus ingredientes.</p>
+      <div class="hero-copy">
+        <h1 id="hero-titulo" class="hero-h1"><span class="split-chars">¿Qué hago de</span> <span class="split-chars">comer <em>hoy?</em></span></h1>
+        <p class="hero-sub">Kukin te dice, con lo que ya tienes.</p>
+        <p class="lead">Una app para Android que te sugiere qué cocinar con lo que hay en tu alacena, te avisa antes de que se te eche a perder la comida y te arma la lista del súper.</p>
         <div class="cta-group">
-          <a href="/descargar" class="btn btn-primary">Descargar para Android</a>
-          <a href="/caracteristicas" class="btn btn-secondary">Ver funciones</a>
+          <a href="/descargar" class="btn btn-primary btn-lg magnet">
+            <% if (tieneApk) { %>
+              <svg class="ic" aria-hidden="true"><use href="#i-descarga"/></svg>
+              Probar en Android
+            <% } else { %>
+              <svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>
+              Próximamente en Google Play
+            <% } %>
+          </a>
+          <a href="#como-funciona" class="btn btn-secondary btn-lg">Ver cómo funciona</a>
         </div>
-        <p class="hero-note">Disponible para Android 10 o superior.</p>
+        <% if (tieneApk) { %><p class="hero-note"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg> Todavía no está en Google Play: llega muy pronto</p><% } %>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="phone">
-          <h4>Mi alacena</h4>
-          <div class="item">Tortillas de maíz <span class="chip warn">Caduca en 2 días</span></div>
-          <div class="item">Jitomate <span class="chip warn">Caduca en 3 días</span></div>
-          <div class="item">Frijoles negros <span class="chip ok">Sin prisa</span></div>
-          <div class="match">
-            <small>Receta para hoy</small>
-            <strong>Chilaquiles rojos</strong>
-            <p>Tienes 5 de 6 ingredientes. Sin crema: usa yogur natural.</p>
+
+      <div class="hero-visual">
+        <div class="hero-blob" aria-hidden="true"></div>
+        <div class="stickers" aria-hidden="true">
+          <span class="st" data-depth="1.2" style="--t:3%;--l:1%">🍅</span>
+          <span class="st" data-depth="-0.8" style="--t:8%;--l:80%">🥑</span>
+          <span class="st" data-depth="1.6" style="--t:30%;--l:-1%">🧅</span>
+          <span class="st" data-depth="-1.4" style="--t:50%;--l:86%">🌶️</span>
+          <span class="st" data-depth="0.9" style="--t:76%;--l:2%">🥚</span>
+          <span class="st st-sm" data-depth="-1" style="--t:31%;--l:93%">🌿</span>
+        </div>
+        <div class="hero-phone-wrap">
+          <%- include('partials/phone', { screens: ['alacena'], extraClass: 'phone-hero' }) %>
+          <div class="float-card fc-noti" aria-hidden="true">
+            <svg class="ic"><use href="#i-campana"/></svg>
+            <span><b>Tu jitomate caduca en 2 días</b><small>Toca para ver recetas</small></span>
+          </div>
+          <div class="float-card fc-wa" aria-hidden="true">
+            <svg class="ic"><use href="#i-whatsapp"/></svg>
+            <span><b>Lista enviada</b><small>A la familia 🛒</small></span>
           </div>
         </div>
       </div>
@@ -31,58 +52,239 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <% for (let i = 0; i < 2; i++) { %>
-        <% ['Jitomate','Chile poblano','Frijoles','Tortillas','Cilantro','Aguacate','Limón','Queso fresco','Epazote','Nopales'].forEach(x => { %><span><%= x %></span><% }) %>
-      <% } %>
+      <% ['Jitomate','Chile poblano','Frijoles','Tortillas','Cilantro','Aguacate','Limón','Queso fresco','Epazote','Nopales'].forEach(function (x) { %><span><%= x %></span><% }) %>
+    </div>
+  </div>
+  <div class="marquee rev" aria-hidden="true">
+    <div class="marquee-track">
+      <% recetario.forEach(function (r) { %><span><%= r.nombre %></span><% }) %>
     </div>
   </div>
 
-  <section class="section">
+  <!-- ───────── El problema ───────── -->
+  <section class="dolores" aria-labelledby="dolores-titulo">
     <div class="container">
-      <div class="section-head">
-        <h2>Menos desperdicio, más sazón</h2>
-        <p class="lead">Todo lo que necesitas para saber qué tienes y qué cocinar hoy.</p>
-      </div>
-      <div class="panels">
-        <article class="panel">
-          <div class="badge" aria-hidden="true">🧺</div>
-          <h3>Alacena al día</h3>
-          <p>Registra ingredientes, cantidades y fechas de caducidad en segundos.</p>
-        </article>
-        <article class="panel">
-          <div class="badge" aria-hidden="true">🌮</div>
-          <h3>Recetas con lo que tienes</h3>
-          <p>Platillos mexicanos e internacionales filtrados según tu inventario.</p>
-        </article>
-        <article class="panel">
-          <div class="badge" aria-hidden="true">🔁</div>
-          <h3>Sustituciones locales</h3>
-          <p>Si falta algo, Kukin sugiere equivalentes fáciles de conseguir en México.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head">
-        <h2>De tu alacena a la mesa en tres pasos</h2>
-      </div>
-      <ol class="steps">
-        <li><div><strong>Registra tu alacena</strong><p>Agrega los ingredientes que tienes en casa.</p></div></li>
-        <li><div><strong>Elige una receta</strong><p>Filtra por tiempo de preparación o por ingredientes disponibles.</p></div></li>
-        <li><div><strong>Cocina paso a paso</strong><p>Sigue instrucciones claras, con sustituciones si te falta algo.</p></div></li>
+      <h2 id="dolores-titulo" class="visually-hidden">Lo que pasa en tu cocina</h2>
+      <ol class="dolor-list">
+        <% dolores.forEach(function (d) { %>
+          <li class="dolor">
+            <p class="dolor-frase scrub-words">“<%= d.frase %>”</p>
+            <p class="dolor-resp"><span aria-hidden="true"><%= d.emoji %></span> <%= d.respuesta %></p>
+          </li>
+        <% }) %>
       </ol>
+      <p class="dolores-fin split">Kukin resuelve las tres.</p>
     </div>
   </section>
 
-  <section class="container">
-    <div class="cta-band">
-      <h2>Empieza a cocinar con lo que ya tienes</h2>
-      <p>Descarga Kukin y arma tu primera alacena hoy.</p>
-      <a href="/descargar" class="btn btn-light">Descargar Kukin</a>
+  <!-- ───────── Cómo funciona (teléfono fijo) ───────── -->
+  <section class="story" id="como-funciona" aria-labelledby="story-titulo">
+    <div class="container story-intro">
+      <h2 id="story-titulo" class="split">De tu alacena a la mesa.</h2>
+      <p class="lead">Así se ve un día con Kukin. Desliza y mira cómo cambia el celular.</p>
+    </div>
+    <div class="story-track" style="--n:<%= pasos.length %>">
+      <div class="story-stage">
+        <div class="container story-grid">
+          <div class="story-texts">
+            <ol class="story-steps">
+              <% pasos.forEach(function (p, i) { %>
+                <li class="story-step<%= i === 0 ? ' is-active' : '' %>" data-step="<%= i %>">
+                  <span class="story-num" aria-hidden="true"><%= p.num %></span>
+                  <h3><%= p.titulo %></h3>
+                  <p><%= p.texto %></p>
+                </li>
+              <% }) %>
+            </ol>
+            <div class="story-dots" aria-hidden="true">
+              <% pasos.forEach(function (p, i) { %><i class="<%= i === 0 ? 'on' : '' %>"></i><% }) %>
+            </div>
+          </div>
+          <div class="story-phone">
+            <%- include('partials/phone', { screens: ['alacena','recetas','cocina','lista'], extraClass: 'phone-story' }) %>
+            <p class="phone-caption">Ilustración de la app</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- ───────── Demo interactiva ───────── -->
+  <section class="demo" id="pruebalo" aria-labelledby="demo-titulo">
+    <div class="container">
+      <div class="demo-head">
+        <h2 id="demo-titulo" class="split">Pruébalo aquí.</h2>
+        <p class="lead">Toca lo que tienes en tu cocina y mira qué puedes hacer. Así ordena Kukin tus recetas: primero las que ya casi tienes.</p>
+      </div>
+      <div class="demo-grid">
+        <div class="demo-card demo-pantry">
+          <div class="demo-card-h">
+            <h3>Tu cocina</h3>
+            <span class="demo-count"><b class="js-count"><%= demoInicial.length %></b> ingredientes</span>
+          </div>
+          <div class="demo-chips" role="group" aria-label="Ingredientes que tienes">
+            <% demoIngredientes.forEach(function (ing) { var on = demoInicial.indexOf(ing.id) > -1; %>
+              <button type="button" class="dchip" data-ing="<%= ing.id %>" data-nombre="<%= ing.nombre %>" aria-pressed="<%= on %>">
+                <span aria-hidden="true"><%= ing.emoji %></span><%= ing.nombre %>
+              </button>
+            <% }) %>
+          </div>
+          <div class="demo-tools">
+            <button type="button" class="link-btn js-demo-todo">Tengo de todo</button>
+            <button type="button" class="link-btn js-demo-nada">Vaciar</button>
+          </div>
+        </div>
+
+        <div class="demo-card demo-results">
+          <div class="demo-card-h">
+            <h3>Puedes cocinar</h3>
+            <span class="demo-count" aria-live="polite"><b class="js-full">0</b> con todo listo</span>
+          </div>
+          <ol class="demo-list">
+            <% demoRecetas.forEach(function (r) { %>
+              <li class="drec" data-ings="<%= r.ings.join(',') %>">
+                <span class="drec-em" aria-hidden="true"><%= r.emoji %></span>
+                <span class="drec-b">
+                  <span class="drec-top"><b><%= r.nombre %></b><span class="drec-pct"><%= r.pct %>%</span></span>
+                  <span class="sc-bar"><i style="--w:<%= r.pct %>%"></i></span>
+                  <small class="drec-falta">Lleva: <%= r.ings.length %> ingredientes</small>
+                </span>
+                <button type="button" class="drec-add" aria-label="Agregar lo que falta de <%= r.nombre %> a tu lista">
+                  <svg class="ic" aria-hidden="true"><use href="#i-mas"/></svg>
+                </button>
+              </li>
+            <% }) %>
+          </ol>
+          <div class="demo-cart" hidden>
+            <p class="demo-cart-h"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Tu lista del súper <b class="js-cart-n">0</b></p>
+            <ul class="demo-cart-items"></ul>
+            <p class="demo-cart-note">En la app, esta lista la compartes por WhatsApp con un toque.</p>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note">Demostración simplificada. En la app, Kukin usa tu alacena real, más de 200 ingredientes y te muestra primero lo que está por caducar.</p>
+    </div>
+  </section>
+
+  <!-- ───────── Funciones (pista horizontal) ───────── -->
+  <section class="hfeat" aria-labelledby="hfeat-titulo">
+    <div class="hfeat-pin">
+      <div class="container hfeat-head">
+        <h2 id="hfeat-titulo" class="split">Todo lo que hace por ti.</h2>
+        <a href="/caracteristicas" class="link-arrow">Ver todas las funciones <svg class="ic" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      </div>
+      <div class="hfeat-viewport">
+        <ul class="hfeat-track">
+          <% funciones.forEach(function (f) { %>
+            <li class="hcard hcard-<%= f.color %>">
+              <span class="hcard-em" aria-hidden="true"><%= f.emoji %></span>
+              <div class="hcard-demo" aria-hidden="true">
+                <% if (f.id === 'alacena') { %>
+                  <span class="hd-row"><span class="em" style="--c:#FFEBEE">🍅</span><b>Jitomate</b><span class="tag tag-alerta">Caduca en 2 días</span></span>
+                  <span class="hd-row"><span class="em" style="--c:#FFF8E1">🥚</span><b>Huevo</b><span class="tag tag-fresco">Fresco</span></span>
+                <% } else if (f.id === 'recetas') { %>
+                  <span class="hd-big">83%</span><span class="sc-bar"><i style="--w:83%"></i></span><small>Chilaquiles rojos · te falta: crema</small>
+                <% } else if (f.id === 'cocina') { %>
+                  <span class="hd-pills"><span class="ck-btn"><svg class="ic"><use href="#i-voz"/></svg> Leer</span><span class="ck-btn ck-timer"><svg class="ic"><use href="#i-reloj"/></svg> <b class="js-timer">10:00</b></span></span>
+                <% } else if (f.id === 'lista') { %>
+                  <span class="hd-big">3 de 8</span><span class="sc-bar"><i style="--w:37.5%"></i></span><small>en el carrito</small>
+                <% } else if (f.id === 'avisos') { %>
+                  <span class="hd-noti"><b>Tu jitomate caduca en 2 días 🍅</b><small>Toca para ver recetas</small></span>
+                <% } else if (f.id === 'objetivo') { %>
+                  <span class="hd-chips"><span>Bajar de peso</span><span class="on">Ganar músculo</span><span>Cuidar el corazón</span><span>Equilibrado</span></span>
+                <% } else if (f.id === 'offline') { %>
+                  <span class="hd-off"><svg class="ic"><use href="#i-nube"/></svg> Sin conexión: te mostramos lo último que guardaste</span>
+                <% } else if (f.id === 'cuenta') { %>
+                  <span class="hd-off hd-lock"><svg class="ic"><use href="#i-candado"/></svg> Contraseña cifrada</span>
+                <% } %>
+              </div>
+              <h3><%= f.titulo %></h3>
+              <p><%= f.corto %></p>
+              <a href="/caracteristicas#<%= f.id %>" class="hcard-link" aria-label="Más sobre: <%= f.titulo %>"><svg class="ic" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Recetario mexicano ───────── -->
+  <section class="recetario" aria-labelledby="recetario-titulo">
+    <div class="recetario-field">
+      <%- include('partials/papel-picado') %>
+      <div class="container">
+        <div class="recetario-head">
+          <h2 id="recetario-titulo" class="split">Sabor de casa, incluido.</h2>
+          <p>Kukin trae su propio recetario mexicano con 14 platillos de diario, con pasos en español y cantidades que se ajustan a tus porciones.</p>
+        </div>
+        <ul class="platos">
+          <% recetario.forEach(function (r) { %>
+            <li class="plato"><span aria-hidden="true"><%= r.emoji %></span><%= r.nombre %></li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Para quién ───────── -->
+  <section class="section publicos" aria-labelledby="publicos-titulo">
+    <div class="container">
+      <h2 id="publicos-titulo" class="split">Hecha para tu cocina.</h2>
+      <div class="tabs" role="tablist" aria-label="¿Quién eres?">
+        <% publicos.forEach(function (p, i) { %>
+          <button type="button" role="tab" id="tab-<%= p.id %>" aria-controls="panel-<%= p.id %>" aria-selected="<%= i === 0 %>" tabindex="<%= i === 0 ? 0 : -1 %>" class="tab">
+            <span aria-hidden="true"><%= p.emoji %></span> <%= p.etiqueta %>
+          </button>
+        <% }) %>
+        <span class="tab-ink" aria-hidden="true"></span>
+      </div>
+      <% publicos.forEach(function (p, i) { %>
+        <div class="tab-panel" role="tabpanel" id="panel-<%= p.id %>" aria-labelledby="tab-<%= p.id %>" <%= i === 0 ? '' : 'hidden' %>>
+          <div class="tp-copy">
+            <h3><%= p.titulo %></h3>
+            <p class="lead"><%= p.texto %></p>
+          </div>
+          <ul class="ticks">
+            <% p.puntos.forEach(function (x) { %><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><%= x %></span></li><% }) %>
+          </ul>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ───────── Preguntas ───────── -->
+  <section class="section faq-sec" aria-labelledby="faq-titulo">
+    <div class="container faq-grid">
+      <div>
+        <h2 id="faq-titulo" class="split">Preguntas de la cocina.</h2>
+        <p class="lead">Lo que más nos preguntan antes de probar Kukin.</p>
+        <a href="/como-funciona#preguntas" class="link-arrow">Ver todas las preguntas <svg class="ic" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      </div>
+      <%- include('partials/faq', { faq: faq }) %>
+    </div>
+  </section>
+
+  <!-- ───────── Naat Labs ───────── -->
+  <section class="section naat" aria-labelledby="naat-titulo">
+    <div class="container naat-grid">
+      <div class="naat-copy">
+        <h2 id="naat-titulo" class="split">Hecho en Zapopan por Naat Labs.</h2>
+        <p class="lead">Naat Labs desarrolla software para optimizar los recursos de todos los días. “Naat” significa inteligencia o entendimiento en lengua maya.</p>
+      </div>
+      <dl class="naat-card">
+        <div>
+          <dt>Nuestra misión</dt>
+          <dd>Facilitar la vida culinaria con herramientas intuitivas que aprovechen al máximo tus ingredientes, reduciendo el desperdicio y promoviendo la creatividad en la cocina.</dd>
+        </div>
+        <div>
+          <dt>Nuestra visión</dt>
+          <dd>Ser la principal herramienta de inventario doméstico y asistencia culinaria en Latinoamérica.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
 </main>
 
 <%- include('partials/footer') %>

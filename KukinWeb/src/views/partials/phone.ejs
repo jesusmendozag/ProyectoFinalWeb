@@ -1,0 +1,89 @@
+<%
+  // Uso: include('partials/phone', { screens: ['alacena','recetas','cocina','lista'], extraClass: '' })
+  var lista = typeof screens !== 'undefined' ? screens : ['alacena'];
+  var clase = typeof extraClass !== 'undefined' ? extraClass : '';
+%>
+<div class="phone <%= clase %>" role="img" aria-label="Ilustración de la app Kukin en un celular">
+  <div class="phone-notch" aria-hidden="true"></div>
+  <div class="phone-screen" aria-hidden="true">
+    <div class="ps-status"><span>9:41</span><span class="ps-dots"><i></i><i></i><i></i></span></div>
+
+    <% if (lista.indexOf('alacena') > -1) { %>
+    <div class="screen" data-screen="alacena">
+      <div class="sc-head">
+        <p class="sc-hola">Hola 👋</p>
+        <h3 class="sc-title">Mi alacena</h3>
+      </div>
+      <div class="sc-search"><svg class="ic"><use href="#i-busca"/></svg> Agregar ingrediente…</div>
+      <ul class="pantry">
+        <li><span class="em" style="--c:#FFEBEE">🍅</span><span class="pn"><b>Jitomate</b><small>3 piezas</small></span><span class="tag tag-alerta">Caduca en 2 días</span></li>
+        <li><span class="em" style="--c:#FFF4DC">🫓</span><span class="pn"><b>Tortillas</b><small>1 kg</small></span><span class="tag tag-alerta">Por caducar</span></li>
+        <li><span class="em" style="--c:#F3ECE0">🧅</span><span class="pn"><b>Cebolla</b><small>2 piezas</small></span><span class="tag tag-fresco">Fresco</span></li>
+        <li><span class="em" style="--c:#FFF8E1">🥚</span><span class="pn"><b>Huevo</b><small>12 piezas</small></span><span class="tag tag-fresco">Fresco</span></li>
+        <li><span class="em" style="--c:#EFE7E1">🫘</span><span class="pn"><b>Frijoles</b><small>500 g</small></span><span class="tag tag-fresco">Fresco</span></li>
+      </ul>
+      <div class="sc-suggest">
+        <small>Usa tu jitomate antes de que caduque</small>
+        <b>Chilaquiles rojos 🌶️</b>
+        <span class="sc-bar"><i style="--w:83%"></i></span>
+        <small>Tienes el 83% de los ingredientes</small>
+      </div>
+    </div>
+    <% } %>
+
+    <% if (lista.indexOf('recetas') > -1) { %>
+    <div class="screen" data-screen="recetas">
+      <div class="sc-head"><h3 class="sc-title">¿Qué cocinamos?</h3></div>
+      <div class="sc-chips"><span class="on">Caduca pronto</span><span>Rápidas</span><span>Tienes todo</span><span>Baratas</span></div>
+      <div class="rc">
+        <span class="rc-em" style="--c:#FFEBEE">🌶️</span>
+        <div class="rc-b"><b>Chilaquiles rojos</b><small>Usa: jitomate, tortillas</small><span class="sc-bar"><i style="--w:83%"></i></span><small class="rc-f">83% · Te falta: crema</small></div>
+      </div>
+      <div class="rc">
+        <span class="rc-em" style="--c:#FFF8E1">🍳</span>
+        <div class="rc-b"><b>Huevo a la mexicana</b><small>15 min · ≈ 320 kcal</small><span class="sc-bar"><i style="--w:100%"></i></span><small class="rc-f ok">100% · Tienes todo</small></div>
+      </div>
+      <div class="rc">
+        <span class="rc-em" style="--c:#F3ECE0">🍜</span>
+        <div class="rc-b"><b>Sopa de fideo</b><small>25 min · Sin horno</small><span class="sc-bar"><i style="--w:75%"></i></span><small class="rc-f">75% · Te falta: fideo</small></div>
+      </div>
+    </div>
+    <% } %>
+
+    <% if (lista.indexOf('cocina') > -1) { %>
+    <div class="screen" data-screen="cocina">
+      <div class="sc-head"><p class="sc-hola">Modo cocina</p><h3 class="sc-title">Chilaquiles rojos</h3></div>
+      <div class="por"><span>Porciones</span><span class="por-c"><i><svg class="ic"><use href="#i-menos"/></svg></i><b>4</b><i><svg class="ic"><use href="#i-mas"/></svg></i></span></div>
+      <div class="step-card">
+        <small>Paso 3 de 6</small>
+        <p>Fríe las tortillas en tiras hasta que doren, unos 10 minutos.</p>
+      </div>
+      <div class="ck-actions">
+        <span class="ck-btn"><svg class="ic"><use href="#i-voz"/></svg> Leer</span>
+        <span class="ck-btn ck-timer"><svg class="ic"><use href="#i-reloj"/></svg> <b class="js-timer">10:00</b></span>
+      </div>
+      <p class="ck-note">☀️ La pantalla no se apagará</p>
+      <span class="sc-cta">Ya la cociné</span>
+    </div>
+    <% } %>
+
+    <% if (lista.indexOf('lista') > -1) { %>
+    <div class="screen" data-screen="lista">
+      <div class="sc-head"><h3 class="sc-title">Lista del súper</h3></div>
+      <div class="ls-prog"><span>3 de 8 en el carrito</span><span class="sc-bar"><i style="--w:37.5%"></i></span></div>
+      <p class="ls-g">Para Chilaquiles rojos</p>
+      <ul class="ls">
+        <li class="done"><i><svg class="ic"><use href="#i-check"/></svg></i>Crema <small>1 taza</small></li>
+        <li><i></i>Queso fresco <small>200 g</small></li>
+        <li><i></i>Cebolla morada <small>1 pieza</small></li>
+      </ul>
+      <p class="ls-g">Otras cosas</p>
+      <ul class="ls">
+        <li class="done"><i><svg class="ic"><use href="#i-check"/></svg></i>Tortillas <small>1 kg</small></li>
+        <li class="done"><i><svg class="ic"><use href="#i-check"/></svg></i>Jabón <small>1</small></li>
+      </ul>
+      <span class="sc-cta sc-wa"><svg class="ic"><use href="#i-whatsapp"/></svg> Compartir por WhatsApp</span>
+    </div>
+    <% } %>
+  </div>
+</div>

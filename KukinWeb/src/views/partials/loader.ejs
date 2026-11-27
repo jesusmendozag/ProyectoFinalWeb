@@ -1,0 +1,63 @@
+<div class="loader" role="dialog" aria-modal="true" aria-label="Kukin se está cargando">
+  <div class="ld-in">
+    <div class="ld-stage">
+      <div class="ld-sts" aria-hidden="true">
+        <span class="ld-st" style="--t:6%;--l:8%">🍅</span>
+        <span class="ld-st" style="--t:2%;--l:74%">🥑</span>
+        <span class="ld-st" style="--t:44%;--l:-2%">🧅</span>
+        <span class="ld-st" style="--t:40%;--l:84%">🌶️</span>
+        <span class="ld-st" style="--t:80%;--l:4%">🥚</span>
+        <span class="ld-st" style="--t:78%;--l:80%">🌿</span>
+      </div>
+      <div class="olla-box ld-box">
+        <svg class="ld-olla" viewBox="0 0 260 230" fill="none" aria-hidden="true">
+          <g class="ld-vapor" stroke="#FDFBF7" stroke-width="7" stroke-linecap="round">
+            <path d="M100 62c-14-14 14-24 0-40"/><path d="M130 56c-16-16 16-26 0-46"/><path d="M160 62c-14-14 14-24 0-40"/>
+          </g>
+          <g class="ld-flamas">
+            <path d="M92 222c-10-8-6-20 2-28 2 8 8 10 8 18 0 6-4 10-10 10Z" fill="#F59E0B"/>
+            <path d="M130 224c-13-10-8-26 2-36 3 10 11 13 11 23 0 8-5 13-13 13Z" fill="#F59E0B"/>
+            <path d="M168 222c-10-8-6-20 2-28 2 8 8 10 8 18 0 6-4 10-10 10Z" fill="#F59E0B"/>
+            <path d="M131 222c-6-5-4-12 1-17 1 5 5 7 5 11 0 4-3 6-6 6Z" fill="#FFF4DC"/>
+          </g>
+          <g class="ld-cuerpo">
+            <path d="M34 128h-14a10 10 0 0 0 0 20h14M226 128h14a10 10 0 0 1 0 20h-14" stroke="#0B1E36" stroke-width="7" stroke-linecap="round"/>
+            <path d="M40 112h180v46a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40v-46Z" fill="#C65D35" stroke="#0B1E36" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M58 160c4 14 14 24 26 26" stroke="#E08A62" stroke-width="5" stroke-linecap="round"/>
+            <rect x="43.5" y="128" width="173" height="22" fill="#FDFBF7"/>
+            <g fill="#1E4FA3">
+              <path d="M60 139l6-6 6 6-6 6Z"/><path d="M90 139l6-6 6 6-6 6Z"/><path d="M120 139l10-8 10 8-10 8Z"/><path d="M158 139l6-6 6 6-6 6Z"/><path d="M188 139l6-6 6 6-6 6Z"/>
+              <circle cx="78" cy="139" r="2.5"/><circle cx="108" cy="139" r="2.5"/><circle cx="148" cy="139" r="2.5"/><circle cx="178" cy="139" r="2.5"/>
+            </g>
+            <path d="M43.5 128h173M43.5 150h173" stroke="#1E4FA3" stroke-width="2.5"/>
+            <circle cx="90" cy="172" r="4" fill="#9E4423"/><circle cx="130" cy="176" r="4" fill="#9E4423"/><circle cx="170" cy="172" r="4" fill="#9E4423"/>
+            <rect x="30" y="102" width="200" height="18" rx="9" fill="#0B1E36"/>
+          </g>
+          <g class="ld-burbujas" fill="#FDFBF7">
+            <circle cx="96" cy="100" r="6"/><circle cx="132" cy="100" r="8"/><circle cx="166" cy="100" r="5"/>
+          </g>
+          <g class="ld-tapa">
+            <path d="M48 102a82 36 0 0 1 164 0Z" fill="#B24E2B" stroke="#0B1E36" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M78 88c14-12 32-16 52-17" stroke="#E08A62" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="130" cy="60" r="11" fill="#F59E0B" stroke="#0B1E36" stroke-width="6"/>
+          </g>
+        </svg>
+        <div class="olla-splash"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="olla-boom"><% for (var b = 0; b < 18; b++) { %><i></i><% } %></div>
+      </div>
+      <p class="olla-listo" aria-hidden="true">¡Listo!</p>
+    </div>
+    <p class="ld-word">Kukin<span aria-hidden="true">.</span></p>
+    <div class="ld-carga">
+      <div class="ld-prog">
+        <span class="ld-msg">Calentando la olla…</span>
+        <span class="ld-pct js-ld-pct" aria-hidden="true">0%</span>
+      </div>
+      <span class="ld-bar" aria-hidden="true"><i></i></span>
+    </div>
+    <div class="ld-cocina" hidden>
+      <p class="ld-hint"><b><span class="js-ld-n">0</span>/6</b> Desliza o toca la olla para cocinar <svg class="ic" aria-hidden="true"><use href="#i-flecha"/></svg></p>
+    </div>
+  </div>
+  <button type="button" class="ld-skip">Saltar</button>
+</div>

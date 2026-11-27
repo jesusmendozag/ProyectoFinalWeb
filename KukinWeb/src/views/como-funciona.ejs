@@ -1,23 +1,81 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main>
+<main id="contenido">
   <section class="page-head">
     <div class="container">
-      <h1>¿Cómo funciona Kukin?</h1>
-      <p>Tres pasos para cocinar sin desperdiciar.</p>
+      <h1 class="split-chars">Así funciona Kukin.</h1>
+      <p class="lead">De crear tu cuenta a guardar lo que compraste, paso a paso.</p>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section" aria-label="Pasos">
     <div class="container">
-      <ol class="steps">
-        <li><div><strong>Escanea o registra tu alacena</strong><p>Agrega los ingredientes que tienes en casa.</p></div></li>
-        <li><div><strong>Descubre recetas compatibles</strong><p>Filtra por tiempo de preparación o ingredientes disponibles.</p></div></li>
-        <li><div><strong>Cocina paso a paso</strong><p>Sigue instrucciones claras con sustituciones locales si te falta algo.</p></div></li>
+      <ol class="timeline">
+        <li>
+          <span class="tl-dot" aria-hidden="true">🔑</span>
+          <div class="tl-body">
+            <h2>Crea tu cuenta</h2>
+            <p>Te registras con tu correo y una contraseña. Las contraseñas se guardan cifradas y tus datos son tuyos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">🥫</span>
+          <div class="tl-body">
+            <h2>Llena tu alacena</h2>
+            <p>Busca entre más de 200 ingredientes en español y elige cantidad, unidad y fecha de caducidad. No tienes que pesar nada: pon piezas, tazas o cucharadas. Si no pones la fecha, Kukin la estima; si tu ingrediente no está, lo agregas tú.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">🍳</span>
+          <div class="tl-body">
+            <h2>Elige qué cocinar</h2>
+            <p>Las recetas se ordenan por qué porcentaje de los ingredientes ya tienes, y primero ves las que usan lo que está por caducar. Filtra por rápidas, baratas, sin horno, pocos ingredientes o para tu objetivo.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">👩‍🍳</span>
+          <div class="tl-body">
+            <h2>Cocina con calma</h2>
+            <p>Ajusta las porciones y las cantidades cambian solas. Sigue los pasos en letra grande, deja que la app te los lea en voz alta e inicia el temporizador cuando un paso lo pida. La pantalla no se apaga.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">✅</span>
+          <div class="tl-body">
+            <h2>Toca "Ya la cociné"</h2>
+            <p>Kukin te pregunta "¿Cuánto te queda?" y descuenta de tu alacena lo que usaste.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">🛒</span>
+          <div class="tl-body">
+            <h2>Compra solo lo que falta</h2>
+            <p>"Agregar lo que falta a mi lista" manda lo que no tienes a tu lista del súper. Compártela por WhatsApp, palomea lo que metes al carrito y, al volver, toca "Guardar lo comprado en alacena".</p>
+          </div>
+        </li>
+        <li>
+          <span class="tl-dot" aria-hidden="true">⏰</span>
+          <div class="tl-body">
+            <h2>Y Kukin te avisa</h2>
+            <p>Dos días antes de que algo caduque te llega una notificación. Al tocarla, ves recetas que usan ese ingrediente.</p>
+          </div>
+        </li>
       </ol>
-      <div class="cta-group" style="margin-top:2.5rem"><a href="/descargar" class="btn btn-primary">Descargar Kukin</a></div>
     </div>
   </section>
+
+  <section class="section faq-sec" id="preguntas" aria-labelledby="faq-titulo">
+    <div class="container faq-grid">
+      <div>
+        <h2 id="faq-titulo" class="split">Preguntas frecuentes.</h2>
+        <p class="lead">¿No encuentras tu duda? <a href="/contacto">Escríbenos</a>.</p>
+      </div>
+      <%- include('partials/faq', { faq: faq }) %>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
 </main>
 
 <%- include('partials/footer') %>

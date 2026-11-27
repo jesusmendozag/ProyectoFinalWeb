@@ -1,0 +1,8 @@
+<div class="faq">
+  <% faq.forEach(function (item) { %>
+    <details>
+      <summary><span><%= item.p %></span><svg class="ic" aria-hidden="true"><use href="#i-mas"/></svg></summary>
+      <div class="faq-a"><p><%= item.r %></p></div>
+    </details>
+  <% }) %>
+</div>

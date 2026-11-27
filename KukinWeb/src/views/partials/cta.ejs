@@ -1,0 +1,20 @@
+<section class="cierre" aria-labelledby="cierre-titulo">
+  <div class="cierre-field">
+    <%- include('papel-picado') %>
+    <div class="container cierre-in">
+      <h2 id="cierre-titulo" class="split">Muy pronto en tu Android.</h2>
+      <p><%= (typeof tieneApk !== 'undefined' && tieneApk) ? 'Mientras llega a Google Play, ya puedes instalar la versión de prueba.' : 'Estamos dando los últimos toques para llevar Kukin a Google Play.' %></p>
+      <div class="cta-group">
+        <a href="/descargar" class="btn btn-light magnet">
+          <svg class="ic" aria-hidden="true"><use href="#i-descarga"/></svg>
+          Ir a descargas
+        </a>
+        <a href="/contacto" class="btn btn-ghost-light">Escríbenos</a>
+      </div>
+    </div>
+    <div class="cierre-stickers" aria-hidden="true">
+      <span style="--x:6%;--d:0s">🍅</span><span style="--x:20%;--d:2.2s">🥑</span><span style="--x:36%;--d:4.4s">🌶️</span>
+      <span style="--x:62%;--d:1.1s">🍋</span><span style="--x:78%;--d:3.3s">🌽</span><span style="--x:92%;--d:5.5s">🧅</span>
+    </div>
+  </div>
+</section>

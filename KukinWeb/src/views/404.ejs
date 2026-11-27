@@ -1,10 +1,13 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
 
-<main class="container notfound">
-  <h1>404</h1>
-  <p class="lead" style="margin-inline:auto">Esta página no está en la alacena. Vuelve al inicio para seguir cocinando.</p>
-  <a href="/" class="btn btn-primary">Ir al inicio</a>
+<main id="contenido" class="notfound">
+  <div class="container">
+    <p class="nf-em" aria-hidden="true">🍳</p>
+    <h1 class="split-chars">Esta página no está en la alacena.</h1>
+    <p class="lead">Puede que el enlace esté mal escrito o que la página ya no exista.</p>
+    <a href="/" class="btn btn-primary btn-lg magnet">Volver al inicio</a>
+  </div>
 </main>
 
 <%- include('partials/footer') %>
